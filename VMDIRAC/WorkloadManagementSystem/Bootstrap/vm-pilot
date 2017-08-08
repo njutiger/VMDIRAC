@@ -38,6 +38,9 @@ case $i in
     --running-pod=*)
     RUNNING_POD="${i#*=}"
     ;;
+    --release-installation=*)
+    INSTALLATION="${i#*=}"
+    ;;
     --release-version=*)
     VERSION="${i#*=}"
     ;;
@@ -99,6 +102,7 @@ fi
 python dirac-pilot.py \
  --debug \
  --setup $SETUP \
+ -V $INSTALLATION \
  -r $VERSION \
  -l $PROJECT \
  -e VMDIRAC \
