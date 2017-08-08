@@ -178,7 +178,7 @@ fi
 ##############################################################################
 # Make a common DIRAC installation for all the pilots
 date --utc +"%Y-%m-%d %H:%M:%S %Z vm-bootstrap install DIRAC in /opt/dirac"
-vm_dirac_install $INSTALLATION $PROJECT $VERSION $SETUP $DIRAC_SITE $CE_NAME $CS_SERVERS $VO
+vm_dirac_install $PROJECT $VERSION $SETUP $DIRAC_SITE $CE_NAME $CS_SERVERS $VO
 
 ##############################################################################
 # Start the VM Monitoring Agent
