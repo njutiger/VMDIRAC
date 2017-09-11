@@ -849,6 +849,7 @@ def urlretrieveTimeout( url, fileName = '', timeout = 0 ):
       logERROR( "File should be %s bytes but received %s" % ( expectedBytes, receivedBytes ) )
       return False
   except urllib2.HTTPError, x:
+    print ':::::::::::::::::::::::::::::: urllib2.HTTPError:', x
     if x.code == 404:
       logERROR( "%s does not exist" % url )
       if timeout:
