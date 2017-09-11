@@ -189,7 +189,7 @@ fi
 
 ##############################################################################
 # Start the pilots now as many as the number of processors on the host
-chmod +x $CONTEXTDIR/vm-pilot
+chmod +x $CONTEXTDIR/vm-pilot*
 chmod +x $CONTEXTDIR/parse-jobagent-log
 
 date --utc +"%Y-%m-%d %H:%M:%S %Z Starting $NUM_JOB_SLOTS pilots"
@@ -229,7 +229,7 @@ do
   # One subprocess per job slot
   (
     # Now run the pilot script, possibly with the IaaS metadata updated VM_UUID
-    /usr/bin/sudo -n -u plt$nn $CONTEXTDIR/vm-pilot $RAWARGS --pilot-number="$nn" >>/etc/joboutputs/vm-pilot.$nn.log 2>&1
+    /usr/bin/sudo -n -u plt$nn $CONTEXTDIR/vm-pilot* $RAWARGS --pilot-number="$nn" >>/etc/joboutputs/vm-pilot.$nn.log 2>&1
 
     # Last shutdown_message to be written is used as overall result
     $CONTEXTDIR/parse-jobagent-log /etc/joboutputs/vm-pilot.$nn.log > /etc/joboutputs/shutdown_message_$nn
