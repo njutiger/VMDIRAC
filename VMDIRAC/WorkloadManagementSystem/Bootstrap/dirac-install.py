@@ -858,6 +858,7 @@ def urlretrieveTimeout( url, fileName = '', timeout = 0 ):
   except urllib2.URLError:
     logERROR( 'Timeout after %s seconds on transfer request for "%s"' % ( str( timeout ), url ) )
   except Exception, x:
+    print ':::::::::::::::::::::::::::::: exception:', x
     if x == 'Timeout':
       print ':::::::::::::::::::::::::::::: 666'
       logERROR( 'Timeout after %s seconds on transfer request for "%s"' % ( str( timeout ), url ) )
