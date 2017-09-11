@@ -858,13 +858,15 @@ def urlretrieveTimeout( url, fileName = '', timeout = 0 ):
     logERROR( 'Timeout after %s seconds on transfer request for "%s"' % ( str( timeout ), url ) )
   except Exception, x:
     if x == 'Timeout':
+      print ':::::::::::::::::::::::::::::: 666'
       logERROR( 'Timeout after %s seconds on transfer request for "%s"' % ( str( timeout ), url ) )
     if timeout:
+      print ':::::::::::::::::::::::::::::: 666666'
       signal.alarm( 0 )
     raise x
 
   if timeout:
-    print ':::::::::::::::::::::::::::::: 333'
+    print ':::::::::::::::::::::::::::::: 777'
     signal.alarm( 0 )
 
   if fileName:
