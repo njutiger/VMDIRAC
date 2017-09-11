@@ -809,6 +809,7 @@ def urlretrieveTimeout( url, fileName = '', timeout = 0 ):
     except AttributeError:
       print ':::::::::::::::::::::::::::::: 333'
       remoteFD = urllib2.urlopen( url )
+      os.system('wget -O /tmp/globalDefaults.cfg /roothttp://lhcbproject.web.cern.ch/lhcbproject/dist/DIRAC3/globalDefaults.cfg')
     expectedBytes = 0
     # Sometimes repositories do not return Content-Length parameter
     try:
