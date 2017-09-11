@@ -786,6 +786,11 @@ def urlretrieveTimeout( url, fileName = '', timeout = 0 ):
   #       This is OK for dirac-install, since there are no threads.
   logDEBUG( 'Retrieving remote file "%s"' % url )
 
+  try:
+    a = urllib2.urlopen( 'http://lhcbproject.web.cern.ch/lhcbproject/dist/DIRAC3/globalDefaults.cfg' )
+  except Exception as e:
+    print '::::::::::::::::::::::::::::::::::::: exception:', e
+
   urlData = ''
   if timeout:
     signal.signal( signal.SIGALRM, alarmTimeoutHandler )
@@ -867,6 +872,11 @@ def urlretrieveTimeout( url, fileName = '', timeout = 0 ):
       print ':::::::::::::::::::::::::::::: 666666'
       signal.alarm( 0 )
     raise x
+
+  try:
+    a = urllib2.urlopen( 'http://lhcbproject.web.cern.ch/lhcbproject/dist/DIRAC3/globalDefaults.cfg' )
+  except Exception as e:
+    print '::::::::::::::::::::::::::::::::::::: exception2:', e
 
   if timeout:
     print ':::::::::::::::::::::::::::::: 777'
