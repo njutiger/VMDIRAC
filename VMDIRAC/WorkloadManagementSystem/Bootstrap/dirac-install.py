@@ -812,8 +812,11 @@ def urlretrieveTimeout( url, fileName = '', timeout = 0 ):
     expectedBytes = 0
     # Sometimes repositories do not return Content-Length parameter
     try:
+      print ':::::::::::::::::::::::::::::: 444'
       expectedBytes = long( remoteFD.info()[ 'Content-Length' ] )
+      print ':::::::::::::::::::::::::::::: expectedBytes:', expectedBytes
     except Exception, x:
+      print ':::::::::::::::::::::::::::::: 555'
       logWARN( 'Content-Length parameter not returned, skipping expectedBytes check' )
 
     if fileName:
