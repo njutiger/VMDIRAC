@@ -807,7 +807,7 @@ def urlretrieveTimeout( url, fileName = '', timeout = 0 ):
       print ':::::::::::::::::::::::::::::: 222'
        # the keyword 'context' is present from 2.7.9+
     except AttributeError:
-      print ':::::::::::::::::::::::::::::: 333'
+      print ':::::::::::::::::::::::::::::: 333:', url
       remoteFD = urllib2.urlopen( url )
       os.system('wget -O /tmp/globalDefaults.cfg http://lhcbproject.web.cern.ch/lhcbproject/dist/DIRAC3/globalDefaults.cfg')
     expectedBytes = 0
