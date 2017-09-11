@@ -801,10 +801,13 @@ def urlretrieveTimeout( url, fileName = '', timeout = 0 ):
 
     # Try to use insecure context explicitly, needed for python >= 2.7.9
     try:
+      print ':::::::::::::::::::::::::::::: 111'
       context = ssl._create_unverified_context()
       remoteFD = urllib2.urlopen( url, context = context ) # pylint: disable=unexpected-keyword-arg
+      print ':::::::::::::::::::::::::::::: 222'
        # the keyword 'context' is present from 2.7.9+
     except AttributeError:
+      print ':::::::::::::::::::::::::::::: 333'
       remoteFD = urllib2.urlopen( url )
     expectedBytes = 0
     # Sometimes repositories do not return Content-Length parameter
@@ -817,6 +820,7 @@ def urlretrieveTimeout( url, fileName = '', timeout = 0 ):
       localFD = open( fileName, "wb" )
     receivedBytes = 0L
     data = remoteFD.read( 16384 )
+    print ':::::::::::::::::::::::::::::: data:', data
     count = 1
     progressBar = False
     while data:
@@ -857,6 +861,7 @@ def urlretrieveTimeout( url, fileName = '', timeout = 0 ):
     raise x
 
   if timeout:
+    print ':::::::::::::::::::::::::::::: 333'
     signal.alarm( 0 )
 
   if fileName:
