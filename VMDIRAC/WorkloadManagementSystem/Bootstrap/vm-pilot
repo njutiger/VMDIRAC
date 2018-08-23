@@ -98,11 +98,15 @@ if [ "$cvmfs_proxy" != 'DIRECT' ] && [ "$cvmfs_proxy" != 'None' ]; then
   export https_proxy=$hproxy
 fi
 
+if [ -n "$INSTALLATION" ]; then
+  installation_arg=-V $INSTALLATION
+fi
+
 # Run the Pilot 2.0 script
 python dirac-pilot.py \
  --debug \
  --setup $SETUP \
- -V $INSTALLATION \
+ $installation_arg \
  -r $VERSION \
  -l $PROJECT \
  -e VMDIRAC \
