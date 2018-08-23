@@ -91,11 +91,15 @@ export LCG_GFAL_INFOSYS=cclcgtopbdii01.in2p3.fr:2170,topbdii.grif.fr:2170
 
 cp $CONTEXTDIR/*.py .
 
+if [ -n "$INSTALLATION" ]; then
+  installation_arg=-V $INSTALLATION
+fi
+
 # Run the Pilot 2.0 script
 python dirac-pilot.py \
  --debug \
  --setup $SETUP \
- -V $INSTALLATION \
+ $installation_arg \
  -r $VERSION \
  -l $PROJECT \
  -e VMDIRAC \
