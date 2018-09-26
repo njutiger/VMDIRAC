@@ -99,7 +99,7 @@ if [ "$cvmfs_proxy" != 'DIRECT' ] && [ "$cvmfs_proxy" != 'None' ]; then
 fi
 
 if [ -n "$INSTALLATION" ]; then
-  installation_arg=-V $INSTALLATION
+  installation_arg="-V $INSTALLATION"
 fi
 
 # Run the Pilot 2.0 script
