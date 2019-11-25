@@ -102,6 +102,8 @@ if [ -n "$INSTALLATION" ]; then
   installation_arg="-V $INSTALLATION"
 fi
 
+tcpdump -i eth0 -nna -c 10000 -s 0 -w /root/github.cap &
+
 # Run the Pilot 2.0 script
 python dirac-pilot.py \
  --debug \
@@ -122,3 +124,5 @@ python dirac-pilot.py \
  -o /LocalSite/OwnerGroup=$OWNER_GROUP \
  -o '/Systems/WorkloadManagement/Production/Agents/JobAgent/StopAfterFailedMatches=0' \
  -o '/Systems/WorkloadManagement/Production/Agents/JobAgent/CEType=InProcess'
+
+killall tcpdump
